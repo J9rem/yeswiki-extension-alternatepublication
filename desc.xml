@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<plugin name="alternativepublication" version="0.1" active="1">
+  <author>Jeremy Dufraisse</author>
+  <label>alternativepublication</label>
+  <desc>Test temporaire de bazar2publication</desc>
+</plugin>

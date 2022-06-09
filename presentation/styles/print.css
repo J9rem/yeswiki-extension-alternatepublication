@@ -1,0 +1,248 @@
+body {
+  font-variant-numeric: oldstyle-nums;
+}
+p {
+  padding: 0;
+  margin: 0;
+  text-align: justify;
+}
+header + p:first-line {
+  text-transform: lowercase !important;
+  font-variant: small-caps;
+  font-size: 1.1rem;
+}
+p + p {
+  text-indent: 1.33rem;
+}
+.decoration-rw {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.copyright-rw {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  text-align: left;
+  padding-top: 2rem;
+}
+.copyright-rw p {
+  margin-bottom: 1rem;
+  text-indent: 0;
+}
+.dedication-rw p {
+  text-align: center;
+  text-indent: 0;
+}
+.Dedication-rw {
+  margin-top: 3rem;
+}
+.leading-line-rw {
+  height: 1.33rem;
+}
+.fp-rw {
+  text-indent: 0;
+}
+h1,
+.BAZ_fiche_titre {
+  font-size: 1.5rem;
+  line-height: 1.33;
+  text-align: center;
+  padding-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 4px;
+}
+h2 {
+  text-align: center;
+  font-size: 1.33rem;
+  line-height: 1.2rem;
+  text-align: center;
+  padding-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 3px;
+}
+.title-author-rw {
+  text-align: center;
+  font-size: 1.5rem;
+  text-indent: 0;
+}
+.title-num-rw {
+  text-align: center;
+  font-size: 1.5rem;
+  text-indent: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.title-sub-rw {
+  text-align: center;
+  font-size: 1.5rem;
+  text-indent: 0;
+}
+.imprint-rw {
+  text-align: center;
+}
+.extract-verse-rw {
+  margin-top: 1.33rem;
+  margin-bottom: 1.33rem;
+  padding-left: 20pt;
+}
+.extract-rw {
+  margin-top: 1.33rem;
+  margin-bottom: 1.33rem;
+  padding-left: 20pt;
+}
+.extract-verse-rw p {
+  text-align: left;
+  text-indent: -20pt;
+  margin-left: 20pt;
+}
+.epigraph-rw {
+  margin-top: 1.33rem;
+  margin-bottom: 1.33rem;
+  padding-left: 20pt;
+  padding-right: 20pt;
+}
+.sc-rw {
+  font-size: 75%;
+}
+.block-rw {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 20pt;
+  margin-right: 20pt;
+}
+span.dropcap-rw {
+  float: left;
+  font-size: 2.7rem;
+  line-height: 0.87rem;
+}
+.signature-rw {
+  margin-left: 50%;
+  text-align: left;
+  text-indent: 0;
+}
+.AdCard-rw h4 {
+  text-align: center;
+}
+.AdCard-rw p {
+  text-align: center;
+  text-indent: 0;
+}
+.FrontSales-rw h4,
+.FrontSales-rw h2 {
+  text-align: center;
+}
+.FrontSales-rw p {
+  text-indent: 0;
+} /* NAVIGATION */
+a {
+  color: black !important;
+}
+#toc ol {
+  list-style-type: none;
+  margin: 0 0 0 2rem;
+  padding: 0 0 0 0;
+}
+#toc ol ol {
+  list-style-type: none;
+  margin: 0 0 0 1rem;
+  padding: 0 0 0 0;
+}
+#toc ol li {
+  margin: 0;
+  padding: 0;
+}
+#toc ol li a {
+  text-decoration: none;
+  font-family: sans-serif;
+}
+.toc-short ol li a {
+  text-decoration: none;
+  font-family: sans-serif;
+}
+.toc-short ol {
+  list-style-type: none;
+  margin: 0 0 0 2rem;
+  padding: 0;
+}
+#guide {
+  display: none;
+}
+header {
+  padding: 3rem 0 2rem 0;
+}
+header a {
+  text-decoration: none;
+  color: black;
+}
+.center {
+  text-align: center;
+  text-indent: 0;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.title-other-rw {
+  text-align: center;
+  text-indent: 0;
+  margin-top: 0.5rem;
+}
+.dateline-rw {
+  text-align: left;
+  text-indent: 0;
+  margin-top: 1.33rem;
+  margin-bottom: 1.33rem;
+}
+.frontmatter-rw h1 {
+  font-size: 1.5rem;
+}
+.backmatter-rw h1 {
+  font-size: 1.5rem;
+}
+.direction-rw {
+  text-align: center;
+  text-indent: 0;
+  font-style: italic;
+  margin: 1rem 0 1rem 0;
+}
+.source-rw {
+  margin-bottom: 0;
+  text-align: right !important;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-size: 1.1rem;
+  page-break-before: avoid;
+}
+div.block-rw {
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  padding: 6pt 0 6pt 0;
+}
+.list-simple-rw p {
+  text-indent: 0;
+  text-align: left;
+}
+.headline-rw p {
+  text-indent: 0;
+  text-align: center;
+  padding-top: 6px;
+}
+div.photo {
+  margin-top: 1rem;
+  padding-top: 2rem;
+  text-align: center;
+}
+div.photo p {
+  text-align: center;
+  padding: 6px;
+  font-style: italic;
+}
+.-epub-media-overlay-active {
+  background-color: #abc;
+}
