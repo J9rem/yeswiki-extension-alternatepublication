@@ -1,5 +1,5 @@
 {
-    "name": "yeswiki/extension-publication",
+    "name": "yeswiki/extension-alternatepublication",
     "description": "Crée un pdf à partir d'une sélection de pages YesWiki.",
     "type": "yeswiki-plugin",
     "license": "GPL-3.0",

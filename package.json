@@ -1,5 +1,5 @@
 {
-  "name": "yeswiki-extension-publication",
+  "name": "yeswiki-extension-alternatepublication",
   "version": "1.0.0",
   "private": true,
   "description": "Crée un pdf à partir d'une sélection de pages YesWiki.",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yeswiki/yeswiki-extension-publication.git"
+    "url": "git+https://github.com/J9rem/yeswiki-extension-alternatepublication.git"
   },
   "keywords": [],
   "author": "",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/yeswiki/yeswiki-extension-publication/issues"
+    "url": "https://github.com/J9rem/yeswiki-extension-alternatepublication/issues"
   },
-  "homepage": "https://github.com/yeswiki/yeswiki-extension-punlication#readme",
+  "homepage": "https://github.com/J9rem/yeswiki-extension-alternatepublication#readme",
   "dependencies": {
     "pagedjs": "0.1.43"
   }
