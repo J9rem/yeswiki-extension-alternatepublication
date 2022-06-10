@@ -22,6 +22,7 @@ class Bazar2PublicationAction__ extends YesWikiAction
             'icon' => $args['icon'] ?? 'fa-book',
             'class' => $args['class'] ?? '',
             'templatepage' => $args['templatepage'] ?? '',
+            'excludedfields' => $this->formatArray($args['excludedfields'] ?? []),
         ];
     }
 
@@ -41,7 +42,13 @@ class Bazar2PublicationAction__ extends YesWikiAction
             +[
               'via' => 'bazarliste',
               'template-page' => $this->arguments['templatepage'],
-          ]);
+          ]+(
+              empty($this->arguments['excludedfields'])
+            ? []
+            : [
+              'excludeFields' => implode(',', $this->arguments['excludedfields'])
+            ]
+          ));
 
         return $this->render('@alternatepublication/bazar2publication.twig', [
             'href' => $href,
