@@ -7,7 +7,7 @@
 <ul class="media-list">
 {% for page in pages %}
   <li class="media">
-    {% include '@publication/includes/publication.twig' with { 'metas': page._metas, 'tag': page.resource } %}
+    {% include '@alternatepublication/includes/publication.twig' with { 'metas': page._metas, 'tag': page.resource } %}
   </li>
 {% endfor %}
 </ul>

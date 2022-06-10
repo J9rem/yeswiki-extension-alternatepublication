@@ -32,7 +32,7 @@
 	<body class="{{ stylesModifiers | join(' ') }}" data-publication="{{ initialPublicationState | default('awaiting-layout') }}">
     {% block publication %}
       {% if metadatas['publication-cover-page'] == '1' %}
-        {% include "@publication/includes/image-cover.twig" %}
+        {% include "@alternatepublication/includes/image-cover.twig" %}
       {% endif %}
 
       {{ content | raw }}

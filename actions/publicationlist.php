@@ -61,7 +61,7 @@ $pages = array_map(function($page) use ($wiki, $publicationService) {
 
 $this->addCssFile('tools/alternatepublication/presentation/styles/publication.css');
 
-echo $wiki->render('@publication/publicationlist.twig', [
+echo $wiki->render('@alternatepublication/publicationlist.twig', [
   'hasWriteAccess' => $this->HasAccess('write'),
   'hasDeleteAccess' => $this->UserIsAdmin() || $this->UserIsOwner(),
   'pages' => $pages,

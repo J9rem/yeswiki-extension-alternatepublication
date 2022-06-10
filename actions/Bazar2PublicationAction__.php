@@ -13,7 +13,7 @@ namespace YesWiki\Alternatepublication;
 
 use YesWiki\Core\YesWikiAction;
 
-class Bazar2PublicationAction extends YesWikiAction
+class Bazar2PublicationAction__ extends YesWikiAction
 {
     public function formatArguments($args)
     {
@@ -27,6 +27,7 @@ class Bazar2PublicationAction extends YesWikiAction
 
     public function run()
     {
+        $this->output = '';
         $publicationTemplate = !empty($this->arguments['templatepage'])
             ? $this->wiki->loadPage($this->arguments['templatepage'])
             : null;
@@ -42,7 +43,7 @@ class Bazar2PublicationAction extends YesWikiAction
               'template-page' => $this->arguments['templatepage'],
           ]);
 
-        return $this->render('@publication/bazar2publication.twig', [
+        return $this->render('@alternatepublication/bazar2publication.twig', [
             'href' => $href,
             'options' => $this->arguments,
             'templatePage' => $publicationTemplate,

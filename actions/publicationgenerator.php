@@ -340,7 +340,7 @@ $this->addCssFile('tools/alternatepublication/presentation/styles/publication.cs
 $this->AddJavascriptFile('tools/alternatepublication/libs/vendor/jquery-ui-sortable/jquery-ui.min.js');
 $this->AddJavascriptFile('tools/alternatepublication/javascripts/publicationgenerator.js');
 
-echo $this->render('@publication/publicationgenerator.twig', [
+echo $this->render('@alternatepublication/publicationgenerator.twig', [
   'messages' => $messages,
   'entries' => $results,
   'areParamsReadonly' => $areParamsReadonly,

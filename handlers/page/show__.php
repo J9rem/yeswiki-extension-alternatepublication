@@ -8,7 +8,7 @@ if ($this->HasAccess('read') && (isset($this->page['metadatas']['publication-tit
     $publicationService = $this->services->get(Publication::class);
     $metadata = $publicationService->getOptions($wiki->page['metadatas']);
 
-    $output = $wiki->render('@publication/show.twig', [
+    $output = $wiki->render('@alternatepublication/show.twig', [
       'hasWriteAccess' => $wiki->HasAccess('write'),
       'hasDeleteAccess' => $wiki->UserIsAdmin() || $wiki->UserIsOwner(),
       'metadata' => $metadata,

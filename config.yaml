@@ -46,5 +46,5 @@ services:
     autowire: true
     public: true
 
-  YesWiki\Publication\Service\:
+  YesWiki\Alternatepublication\Service\:
     resource: 'services/*'

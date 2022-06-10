@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace YesWiki\Publication\Service;
+namespace YesWiki\Alternatepublication\Service;
 
 use YesWiki\Bazar\Service\EntryManager;
 use YesWiki\Core\YesWikiController;

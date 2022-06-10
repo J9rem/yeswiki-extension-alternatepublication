@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace YesWiki\Test\Publication\Service;
+namespace YesWiki\Test\Alternatepublication\Service;
 
 use YesWiki\Bazar\Service\EntryManager;
 use YesWiki\Alternatepublication\Service\PdfHelper;
@@ -23,7 +23,7 @@ require_once 'tests/YesWikiTestCase.php';
 
 // TODO update tests with new pdfHelper
 
-class PdfHelperTest extends YesWikiTestCase 
+class PdfHelperTest extends YesWikiTestCase
 {
     /**
      * @covers PdfHelper::__construct

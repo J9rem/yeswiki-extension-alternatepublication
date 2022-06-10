@@ -9,23 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace YesWiki\Publication\Service;
+namespace YesWiki\Alternatepublication\Service;
 
-define('PUBLICATION_LAYOUT_BOOK', 'book');
-define('PUBLICATION_LAYOUT_FANZINE', 'fanzine');
-
-class Publication {
-  private $modes = [
-    PUBLICATION_LAYOUT_BOOK,
-    PUBLICATION_LAYOUT_FANZINE
+class Publication
+{
+    private const PUBLICATION_LAYOUT_BOOK = 'book';
+    private const PUBLICATION_LAYOUT_FANZINE = 'fanzine';
+    private $modes = [
+    self::PUBLICATION_LAYOUT_BOOK,
+    self::PUBLICATION_LAYOUT_FANZINE
   ];
 
-  // Publication modes that require to load Paged.js to assemble the paged content
-  private $pagedLayouts = [
-    PUBLICATION_LAYOUT_BOOK
+    // Publication modes that require to load Paged.js to assemble the paged content
+    private $pagedLayouts = [
+    self::PUBLICATION_LAYOUT_BOOK
   ];
 
-  private $fanzineLayouts = [
+    private $fanzineLayouts = [
     // one page, folded in 4 (8 pages per sheet)
     // see https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#Single-page_options
     'single-page',
@@ -43,7 +43,7 @@ class Publication {
     // 'recto-verso-sexto'
   ];
 
-  private $defaultOptions = [
+    private $defaultOptions = [
     // Publication options
     "publication" => [
       "title" => '',
@@ -68,85 +68,91 @@ class Publication {
     ],
   ];
 
-  public function isMode($mode) {
-    return in_array($mode, $this->modes);
-  }
-
-  public function isPaged($layout) {
-    return in_array($layout, $this->pagedLayouts);
-  }
-
-  private function convertToNewOptionsFormat($options) {
-    // Publication Options
-    if (isset($options['publication-title'])) {
-      $options['publication']['title'] = $options['publication-title'];
-      unset($options['publication-title']);
+    public function isMode($mode)
+    {
+        return in_array($mode, $this->modes);
     }
 
-    if (isset($options['publication-description'])) {
-      $options['publication']['description'] = $options['publication-description'];
-      unset($options['publication-description']);
+    public function isPaged($layout)
+    {
+        return in_array($layout, $this->pagedLayouts);
     }
 
-    if (isset($options['publication-author'])) {
-      $options['publication']['authors'] = $options['publication-author'];
-      unset($options['publication-author']);
+    private function convertToNewOptionsFormat($options)
+    {
+        // Publication Options
+        if (isset($options['publication-title'])) {
+            $options['publication']['title'] = $options['publication-title'];
+            unset($options['publication-title']);
+        }
+
+        if (isset($options['publication-description'])) {
+            $options['publication']['description'] = $options['publication-description'];
+            unset($options['publication-description']);
+        }
+
+        if (isset($options['publication-author'])) {
+            $options['publication']['authors'] = $options['publication-author'];
+            unset($options['publication-author']);
+        }
+
+        // Book Options
+        if (isset($options['publication-page-orientation'])) {
+            $options['publication-book']['page-orientation'] = $options['publication-page-orientation'];
+            unset($options['publication-page-orientation']);
+        }
+
+        if (isset($options['publication-page-format'])) {
+            $options['publication-book']['page-format'] = $options['publication-page-format'];
+            unset($options['publication-page-format']);
+        }
+
+        if (isset($options['publication-book-fold'])) {
+            $options['publication-book']['print-fold'] = $options['publication-book-fold'];
+            unset($options['publication-book-fold']);
+        }
+
+        if (isset($options['publication-print-marks'])) {
+            $options['publication-book']['print-marks'] = $options['publication-print-marks'];
+            unset($options['publication-print-marks']);
+        }
+
+        if (isset($options['publication-pagination'])) {
+            $options['publication-book']['pagination'] = $options['publication-pagination'];
+            unset($options['publication-pagination']);
+        }
+
+        return $options;
     }
 
-    // Book Options
-    if (isset($options['publication-page-orientation'])) {
-      $options['publication-book']['page-orientation'] = $options['publication-page-orientation'];
-      unset($options['publication-page-orientation']);
+    /**
+     * @example PageTag?type=publication-end
+     */
+    public function getIncludeActionFromPageTag($tag)
+    {
+        [$page, $qs] = array_pad(explode('?', $tag), 2, '');
+        parse_str($qs, $params);
+
+        return sprintf(
+            '{{include page="%s" class="%s"%s}}' . "\n",
+            $page,
+            trim(implode(' ', $params)),
+            isset($params['type']) ? ' type="'.$params['type'].'"' : ''
+        );
     }
 
-    if (isset($options['publication-page-format'])) {
-      $options['publication-book']['page-format'] = $options['publication-page-format'];
-      unset($options['publication-page-format']);
+    public function getOptions(...$args)
+    {
+        $options = array_replace_recursive($this->defaultOptions, ...$args);
+        return $this->convertToNewOptionsFormat($options);
     }
 
-    if (isset($options['publication-book-fold'])) {
-      $options['publication-book']['print-fold'] = $options['publication-book-fold'];
-      unset($options['publication-book-fold']);
-    }
+    public function getStyles($metadatas, $options = [])
+    {
+        $isDebug = $options['debug'] === 'yes';
+        $mode = $metadatas['publication-mode'];
 
-    if (isset($options['publication-print-marks'])) {
-      $options['publication-book']['print-marks'] = $options['publication-print-marks'];
-      unset($options['publication-print-marks']);
-    }
-
-    if (isset($options['publication-pagination'])) {
-      $options['publication-book']['pagination'] = $options['publication-pagination'];
-      unset($options['publication-pagination']);
-    }
-
-    return $options;
-  }
-
-  /**
-   * @example PageTag?type=publication-end
-   */
-  public function getIncludeActionFromPageTag ($tag) {
-    [$page, $qs] = array_pad(explode('?', $tag), 2, '');
-    parse_str($qs, $params);
-
-    return sprintf(
-      '{{include page="%s" class="%s"%s}}' . "\n",
-      $page,
-      trim(implode(' ', $params)),
-      isset($params['type']) ? ' type="'.$params['type'].'"' : ''
-    );
-  }
-
-  public function getOptions(...$args) {
-    $options = array_replace_recursive($this->defaultOptions, ...$args);
-    return $this->convertToNewOptionsFormat($options);
-  }
-
-  public function getStyles($metadatas, $options = []) {
-    $isDebug = $options['debug'] === 'yes';
-    $mode = $metadatas['publication-mode'];
-
-    return array_merge(
+        return array_merge(
       // Common styles
       [
         "yeswiki-publication",
@@ -175,6 +181,6 @@ class Publication {
       $mode === 'fanzine' ? [
         "fanzine-" . $metadatas['publication-fanzine']['layout']
       ] : [],
-    );
-  }
+        );
+    }
 }

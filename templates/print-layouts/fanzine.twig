@@ -1,4 +1,4 @@
-{% extends "@publication/print-layouts/base.twig" %}
+{% extends "@alternatepublication/print-layouts/base.twig" %}
 
 {% block css %}{% endblock %}
 {% block js %}{% endblock %}
@@ -6,7 +6,7 @@
 {% block publication %}
 <div class="fanzine">
 	{% if metadatas['publication-cover-page'] == '1' %}
-		{% include "@publication/includes/image-cover.twig" %}
+		{% include "@alternatepublication/includes/image-cover.twig" %}
 	{% endif %}
 
 	{{ content | raw }}
